@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vesti tus ambientes con las telas de Decoronce. Trabajamos los géneros más solicitados en el mercado tales como: tusor, gasas, blackout, pana, tela antidesgarro y más.">
+    <meta name="keywords" content="telas, antidesgarro, tusor, blackout, lino, voile">
+    <title>Item | Decoronce </title>
+    <link rel="icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+    
+
+     <!--=============== REMIX ICONS ===============-->
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header class="header scroll-header " id="header"><!--Inicio Header-->
+        <nav class="nav container">
+            <a href="/" class="nav__logo">
+                <i class="ri-leaf-line nav__logo-icon"></i> DecorOnce
+            </a>
+            <ul class="navbar__menu">
+                <li class="navbar__item ">
+                    <a class="navbar__link" href="/shop">Shop</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__cart" >
+                        <img class="ver-carrito" style="cursor: pointer;" id="verCarrito" src="/Imagenes/iconos/MdiCart.png" alt="">
+                        <span id="cantidadCarrito" class="cantidad-carrito"></span>
+                    </a>
+                </li>
+            </ul>
+            <!-- <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon> -->
+        </nav>
+    </header><!--Fin Header-->
+
+    <main>
+        <section class="section"> <!--Inicio de ITEM-->
+            <div class="grid container div-flex-row-item">
+                <div class="div-item__img">                    
+                    <img id="productImage" class="imagen-item" src="<%= product.image.secure_url %>"
+                        alt="<%= product.name%>">
+                </div>
+
+                <article>
+                    <div class="home__data">
+                        <p class="about__details-description"><%= product.width%></p>
+                        <h1 class="product__title"><%= product.name %></h1>
+                        <p class="home__description" style="white-space: pre-wrap;"><%= product.description %></p>
+                        <p class="product__price">$<%= product.price%></p>
+                    </div>
+                    <!-- Selector de variantes por color -->
+                    <div style="margin: 2rem 0;">
+                        <label style="font-weight: var(--font-semi-bold);" class="product__title" for="colorSelect">Elige un color:</label>
+                        <select id="colorSelect" name="color">
+                            <% product.variants.forEach(function(variant) { %>
+                                <!-- Aquí estamos estableciendo el valor del option como la URL de la imagen -->
+                                <option value="<%= variant.imagen %>"><%= variant.color %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+
+                    <!--para ver la estructura de la base de datos-->
+                    <!-- <pre>
+                        <%= JSON.stringify(product.variants, null, 2) %>
+                    </pre> -->
+                    
+                                
+                    <div class="item__cart">
+                        <p style="font-size: var(--small-font-size);">Cantidad</p>
+                        <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
+                        <p style="font-size: var(--small-font-size); margin-left:5px">Metros</p>
+                        <div class="div-flex-column">
+                            <button class="item__quantity" type="button" id="add">+</button>
+                            <button class="item__quantity" type="button" id="substract">-</button>
+                        </div>
+                    </div>
+                    <button class="add-to-cart button button--flex"
+                    data-id="<%= product._id %>"
+                    data-name="<%= product.name %>" 
+                    data-img="" 
+                    data-price="<%= product.price %>"
+                    data-quantity = ""
+                    data-color="">
+                    
+                    
+                    Agregar</button>
+                </article>
+
+            </div>
+            
+        </section> <!--fin de seccion-->
+    </main>
+    <!--MODAL-CONTAINER-->
+    <div id="modal-container" class="modal-container"></div>
+    <%- include ('../../partials/footer') %>
+    <a href="#" class="scrollup" id="scroll-up">
+        <iconify-icon class="scrollup__icon" icon="fe:arrow-up"></iconify-icon>
+    </a>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!--Iconos-->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+    <!-- <script src="/js/menu-mobile.js"></script> -->
+    
+    <script src="/js/scrollUp.js"></script>
+    
+    
+
+    <script>
+        /*=============== CHANGE BACKGROUND HEADER ===============*/
+        function scrollHeader(){
+        const header = document.getElementById('header')
+        // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
+        if(this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+        }
+        window.addEventListener('scroll', scrollHeader)
+
+    </script>
+
+    <script>
+         // Cambiar la imagen cuando se selecciona un color diferente
+            const colorSelect = document.getElementById('colorSelect');
+            const productImage = document.getElementById('productImage');
+            const addToCartButton = document.querySelector('.add-to-cart');
+
+            colorSelect.addEventListener('change', function() {
+            const selectedImage = colorSelect.value;// Obtén la imagen de la variante
+            const selectedColor= colorSelect.options[colorSelect.selectedIndex].text;// Obtén el nombre del color
+
+            productImage.src = selectedImage; // Cambiar la imagen principal
+
+
+            // Actualiza los atributos data-img y data-color en el botón "Agregar al carrito"
+            addToCartButton.setAttribute('data-img', selectedImage);
+            addToCartButton.setAttribute('data-color', selectedColor);    
+
+            });
+
+    </script>
+
+
+<script>
+    //Deshabilitar el clic derecho
+
+    document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+</script>
+
+
+<script src="/js/carrito.min.js"></script>
+
+
+
+</body>
+
+</html>

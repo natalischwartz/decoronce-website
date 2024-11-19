@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACTO | Decoronce </title>
+    <link rel="icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body> 
+    <%- include('../../partials/header') %>
+    <!--logueo-->
+    <main class="container">
+        <section class="login">
+            <h2 class="slider__title top-title">Contacto</h2>
+            <form action="" method="post" class="formularioAjustes1">
+                <div class="alinearElementosCaja">
+                    <label class="font-1">Nombre: </label>
+                    <input type="text" name="nombre" id="nombre" class="inputsStyleRed left-float" placeholder="ingrese su nombre">
+                </div>
+                <div class="alinearElementosCaja">
+                    <label class="font-1">Apellido: </label>
+                    <input type="text" name="apellido" id="apellido" class="inputsStyleRed left-float" placeholder="ingrese su apellido">
+                </div>
+                <div class="alinearElementosCaja">
+                    <label class="font-1">Email: </label>
+                    <input type="email" name="email" id="email" class="inputsStyleRed" placeholder="Ingrese su email">
+                </div>
+                <div class="alinearElementosCaja">  
+                    <textarea id="miTextarea" name="texto" rows="4" cols="50" name="consulta" id="consulta" class="inputsStyleRed left-float" placeholder="Ingrese su consulta por favor..."></textarea>
+                </div>
+                <div class="caja7">
+                    <input type="submit" value="Envíar" class="btnFormContacto">
+                    <label  class="font-size-R"><input type="checkbox" name="opcion" value="recordarme">&nbsp;Respuesta urgente</label>
+                </div>
+            </form>
+        </section>
+    </main>  
+    <%- include('../../partials/footer') %>
+
+    <!--Iconos-->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+    <script src="/js/menu-mobile.js"></script>
+    <script src="/js/scrollUp.js"></script>
+</body>

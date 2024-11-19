@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER | Decoronce</title>
+    <link rel="icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!--=============== REMIX ICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body> 
+        
+    <%- include ('../../partials/headerAdmin') %> 
+        
+    <!--logueo-->
+    <main>
+        <section class="section container">
+            <h2 class="slider__title top-title">Crea tu cuenta</h2>
+            <p class="texto-register">Completa el formulario</p>
+            <form action="/register" method="post" class="formularioAjustes1">
+                <div class="alinearElementosCaja"> 
+                    <label class="font-1">Nombre: </label>
+                    <input type="text" name="name" id="name" class="inputsStyleRed left-float" placeholder="jhondoe@correo.com">
+                </div>
+                <div class="alinearElementosCaja"> 
+                    <label class="font-1">Email: </label>
+                    <input type="email" name="email" id="email" class="inputsStyleRed left-float" placeholder="jhondoe@correo.com">
+                </div>
+                <div class="alinearElementosCaja">
+                    <label class="font-1">Contraseña: </label>
+                    <input type="password" name="password" id="password" class="inputsStyleRed left-float" placeholder="********">
+                </div>
+                <!-- <div class="alinearElementosCaja">
+                    <label class="font-1">Repetir contraseña: </label>
+                    <input type="password" name="pass" id="pass" class="inputsStyleRed left-float" placeholder="********">
+                </div> -->
+                <div class="caja7 acepto-register">
+                    <input type="submit" value="Registrar" class="btnForm">
+                    <label  class="font-size-R"><input type="checkbox" name="opcion" value="acepto">&nbsp;Acepto términos y condiciones</label>
+                </div>
+            </form>
+        </section>
+    </main>  
+    <!--Pie de página-->
+    <%- include ('../../partials/footer') %>
+    <a href="#" class="scrollup" id="scroll-up">
+        <iconify-icon class="scrollup__icon" icon="fe:arrow-up"></iconify-icon>
+    </a>
+
+    
+    <!--Iconos-->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+    <script src="../../js/menu-mobile.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toastMessage = '<%= mensaje %>';
+            if (toastMessage) {
+                Toastify({
+                    text: toastMessage,
+                    duration:3000,
+                    className: "info",
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Sombra
+                        fontSize: "16px",     // Tamaño de la fuente
+                        padding: "10px 20px"  // Espaciado interno
+                    }
+                }).showToast();
+            }
+        });
+    </script>
+</body>

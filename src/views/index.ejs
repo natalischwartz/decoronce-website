@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="Vesti tus ambientes con las telas de Decoronce. Trabajamos los géneros más solicitados en el mercado tales como: tusor, gasas, blackout, pana, tela antidesgarro y más.">
+        <meta name="keywords" content="telas, antidesgarro, tusor, blackout, lino, voile">
+
+        <title>Inicio | Decoronce</title>
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+
+
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="/css/styles.css">
+
+
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <%- include('partials/header') %>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="/Imagenes/TELAS/muestrarios-tapiceria.jfif" alt="Muestrarios de telas" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            Descubrí la tela <br>
+                            ideal para tu hogar
+                        </h1>
+                        <p class="home__description">
+                            Vestí tus espacios con nuestros géneros de tapicería, mantelería y cortinería para lograr un ambiente cálido y armonioso.
+                        </p>
+                        <a href="/shop" class="button button--flex">
+                            Ver más<i class="ri-arrow-right-down-line button__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="home__social">
+                        <span class="home__social-follow">Seguinos</span>
+
+                        <div class="home__social-links">
+                            <a href="https://www.facebook.com/profile.php?id=100083393414013" target="_blank" class="home__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/decoronce419/?hl=es-la" target="_blank" class="home__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@decoronce419" target="_blank" class="home__social-link">
+                                <iconify-icon icon="ic:baseline-tiktok"  style="color:var(--fisrt-color)"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="about section container" id="about">
+                <div class="about__container grid">
+                    <img src="/Imagenes/TELAS/fundas-sillon-tusor.jpg" alt="Fundas de sillón tusor" class="about__img">
+
+                    <div class="about__data">
+                        <h2 class="section__title about__title">
+                            Quiénes somos
+                        </h2>
+
+                        <p class="about__description">
+                            Somos una empresa familiar dedicada a la venta de telas por mayor y menor. Desde el 2002 comercializamos telas de tapicería, cortinería y decoración para el hogar en general. Nuestra experiencia en el rubro textil nos ayuda a asesorar a cada cliente en sus emprendimientos, trabajos y/o proyectos de decoración.
+                        </p>
+
+                        <div class="about__details">
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Servicio de entrega en tiempo y forma.
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Compromiso con la calidad de nuestras telas.
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Asesoramiento personalizado.
+                            </p>
+                            <!-- <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                100% money back guaranteed.
+                            </p> -->
+                        </div>
+
+                        <a href="/shop" class="button--link button--flex">
+                            Comprar ahora <i class="ri-arrow-right-down-line button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== STEPS ====================-->
+            <section class="steps section container" id="services">
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        Nuestros <br> servicios
+                    </h2>
+
+                    <div class="steps__container grid">
+                        <div class="steps__card">
+                            <div class="steps__card-number">
+                                <img src="/Imagenes/iconos/MemoryLinen.png" alt="Icono tela">
+                            </div>
+                            <h3 class="steps__card-title">Venta de telas</h3>
+                            <p class="steps__card-description">
+                                Nos especializamos en la venta de telas a mayoristas, minoristas, decoradores, confeccionistas, consumidores finales y más.
+                            </p>
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number"><img src="/Imagenes/iconos/MingcuteCurtainLine.png" alt="Icono cortina"></div>
+                            <h3 class="steps__card-title">Confección de cortinas</h3>
+                            <p class="steps__card-description">
+                                Brindamos asesoramiento personalizado para la confección 
+                                de cortinas a medida que incluye desde la toma de 
+                                medidas hasta su colocación final.
+                            </p>
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number"><img src="/Imagenes/iconos/LaShippingFast.png" alt="Icono envíos"></div>
+                            <h3 class="steps__card-title">Envíos a todo el país</h3>
+                            <p class="steps__card-description">
+                                Realizamos envíos a todo el país con el transporte de tu preferencia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== PRODUCTS ====================-->
+            <section class="product section container" id="products">
+                <h2 class="section__title-center">
+                    Ver <br> productos
+                </h2>
+
+                <p class="product__description">
+                    Trabajamos los géneros mas solicitados del mercado tales como: gasas, tusor, voiles, pana , tela antidesgarro y muchos más!
+                </p>
+
+                <div class="product__container grid">
+                    <article class="product__card">
+                        
+
+                        <img src="/Imagenes/TELAS/tela-manta-lisa.jpg" alt="Tela de manta" class="product__img">
+
+                        <h3 class="product__title">Tela de manta</h3>
+                        <span class="product__price">$5499.99</span>
+
+                        <a href="/shop/items/66ca1926867a9490102d85b3" class="button--flex product__button">
+                            <i class="ri-shopping-bag-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="product__card">
+                        
+
+                        <img src="/Imagenes/TELAS/tusor-rayado-mallorca.jpg" alt="Tusor rayado Mallorca" class="product__img">
+
+                        <h3 class="product__title">Tusor rayado mallorca</h3>
+                        <span class="product__price">$11399.99</span>
+
+                        <a href="/shop/items/66c77d4681f625a420e47064" class="button--flex product__button">
+                            <i class="ri-shopping-bag-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="product__card">
+
+                        <img src="/Imagenes/TELAS/jacquard-crudo-panama.jpg" alt="Jacquard crudo" class="product__img">
+
+                        <h3 class="product__title">Jacquard crudo</h3>
+                        <span class="product__price">$8799.99</span>
+
+                        <a href="/shop/items/66ca1631867a9490102d85ad" class="button--flex product__button">
+                            <i class="ri-shopping-bag-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="product__card">
+
+
+                        <img src="/Imagenes/TELAS/tusor-liso.PNG" alt="Tusor liso" class="product__img">
+
+                        <h3 class="product__title">Tusor liso</h3>
+                        <span class="product__price">$12199.99</span>
+
+                        <a href="/shop/items/66c115b1b479873ce23e1ec2" class="button--flex product__button">
+                            <i class="ri-shopping-bag-line"></i>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <!--==================== CONTACT ====================-->
+            <section class="contact section container" id="contact">                
+                <div class="contact__container grid">
+                    <div class="contact__box">
+                        <h2 class="section__title">
+                            Contactanos <br> a través de <br> estos medios
+                        </h2>
+
+                        <div class="contact__data">
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Whatsapp</h3>
+                                <a href="https://api.whatsapp.com/send?phone=5491161622602&text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20productos" class="contact__description" target="_blank">
+                                    <i class="ri-phone-line contact__icon"></i>
+                                    (011)6162-2602
+                                </a>
+                            </div>
+
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">E-mail</h3>
+                                <span class="contact__description">
+                                    <i class="ri-mail-line contact__icon"></i>
+                                    decoronce419@gmail.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="" class="contact__form" id="contact-form" >
+                        <div class="contact__inputs">
+                            <div class="contact__content">
+                                <input class="contact__input" type="email" name="user_email"  id="contact-user" >
+                                <label for="user_email" class="contact__label">Email</label>
+                            </div>
+
+                            <!-- <div class="contact__content">
+                                <input type="text" placeholder=" " class="contact__input">
+                                <label for="" class="contact__label">Asunto</label>
+                            </div> -->
+
+                            <div class="contact__content contact__area">
+                                <textarea placeholder="" id="floatingTextarea" name="user_message" id="message-user" class="contact__input"></textarea>                              
+                                <label for="" class="contact__label">Mensaje</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button button--flex">
+                            Enviar Mensaje
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </form>
+                    <p class="footer__message" id="contact-message"></p>
+                </div>
+            </section>
+        </main>
+
+        <%- include('partials/footer') %>
+        
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="/js/scrollreveal.min.js"></script>
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="/js/main.min.js"></script>
+
+        <!--=============== EMAIL JS ===============-->
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+    
+
+
+    <!--Iconos-->
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    </body>
+</html>

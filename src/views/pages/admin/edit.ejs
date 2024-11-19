@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> EDIT | Decoronce</title>
+    <link rel="icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+
+    <!--=============== REMIX ICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <%- include('../../partials/headerAdmin') %>
+    <main>
+        <section class="container">
+        <!-----------COMIENZO -------->
+            <article class="box">
+                <h1 class="title-create-item">EDITAR ITEM</h1>
+                
+                <% if (typeof errors != 'undefined'){ %>
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <p class="texto-alert"><%= error.msg %></p>
+                        <%  }) %>
+                    </ul>
+
+                <% } %>
+
+
+
+            </article>
+            <form class="form box"  action="/products/edit/<%= data._id %>" method="post" enctype="multipart/form-data">
+                <label class="select" for="provider">Proveedor</label>
+                <select class="input" id="provider" name="provider" >
+                    <option value="<%= data.provider %>"><%= data.provider %></option>
+                </select>
+                <label class="select" for="category">Categoría</label>
+                <select class="input" id="category" name="category">
+                    <option value="<%= data.category %>"><%= data.category %></option>
+                </select>
+                <div class="box create-name-product">
+                    <label class="select" for="name">Nombre del Producto:</label>
+                    <input class="producto border" type="text" id="name" name="name" value="<%=data.name %>"/>
+                </div>
+                <div class="box">
+                    <label for="textarea">
+                        <textarea  name="description"> <%= data.description %> </textarea>
+                    </label>
+                </div>
+                <div class="box container__padre">
+                    <div class="container__padre">
+                        <label class="select space" for="price">Precio:</label>
+                        <input class="producto border2" type="text" id="price" name="price"
+                        value="<%= data.price %>"/>
+                    </div>
+                    <div class="container__padre">
+                        <label class="select space" for="width">Ancho:</label>
+                        <input class="producto border3" type="text" id="width" name="width"  value="<%= data.width %>"/>
+                    </div>
+                </div>    
+                <article class="box container__padre">
+                    <div class="edit__img">
+                        <img src="<%=data.image.secure_url %>" alt="<%= data.name %>">
+                        <p class="edit__img-side">Frente</p>
+                    </div>
+                </article>
+                <div class="container__padre">
+                    <article class="box btn2">
+                        <button class="modificar-link" href="/products" type="submit">Modificar producto</button>
+                    </article>
+                    <article class="box btn2">
+                        <a class="modificar-link" href="">Limpiar</a>
+                    </article>
+                </div>    
+            </form>
+        </section>
+    </main>
+    <%- include ('../../partials/footer') %>
+    
+
+    <!--Iconos-->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+    <script src="/js/menu-mobile.js"></script>
+    <script src="/js/scrollUp.js"></script>
+    
+</body>

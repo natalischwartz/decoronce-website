@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE | Decoronce </title>
+    <link rel="icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!--=============== REMIX ICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body> 
+    <%- include('../../partials/headerAdmin') %>
+    
+    <main>
+        <section class="container section">
+        <!-----------COMIENZO -------->
+            <article class="box">
+                <h1 class="title-create-item">CREAR NUEVO ITEM</h1>
+                
+                <% if (typeof errors != 'undefined'){ %>
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <p class="texto-alert"><%= error.msg %></p>
+                        <%  }) %>
+                    </ul>
+
+                <% } %>
+
+
+
+            </article>
+            <form class="form box"  action="/products/create" method="post" enctype="multipart/form-data">
+                <label class="select" for="provider">Proveedor</label>
+                <select class="input" id="provider" name="provider">
+                    <option value="Telas Express">Telas express</option>
+                    <option value="Shefa">Shefa</option>
+                    <option value="Impac2">Impac2</option>
+                    <option value="Plastiball">Plastiball</option>
+                    <option value="Balian">Balian</option>
+                    <option value="Freire">Freire</option>
+                    <option value="Ezequiel">Ezequiel</option>
+                    <option value="Laguitex">Laguitex</option>
+                    <option value="Niza">Niza</option>
+                    <option value="Prussa Color">Prussa Color</option>
+                    <option value="Cartex">Cartex</option>
+                    <option value="Texsim">Texsim</option>
+                    <option value="El Leon">El Leon</option>
+                </select>
+                <label class="select" for="category">Categoría</label>
+                <select class="input" id="category" name="category">
+                    <option value="Tapicería">Tapicería</option>
+                    <option value="Cortinería">Cortinería</option>
+                    <option value="Mantelería">Mantelería</option>
+                    <option value="figure">-</option>
+                </select>
+                <div class="box create-name-product">
+                    <label class="select" for="name">Nombre del Producto:</label>
+                    <input class="producto border" type="text" id="name" name="name" value="<%= typeof values != 'undefined' ? values.nombre  : '' %>"
+                    />
+                </div>
+                <div class="box">
+                    <label for="textarea">
+                        <textarea  name="description" placeholder="Descripción del producto"> </textarea>
+                    </label>
+                </div>
+                <div class="box container__padre">
+                    <div class="container__padre">
+                        <label class="select space" for="price">Precio:</label>
+                        <input class="producto border2" type="text" id="price" name="price"/>
+                    </div>
+                    <div class="container__padre">
+                        <label class="select space" for="width">Ancho:</label>
+                        <input class="producto border3" type="text" id="width" name="width" />
+                    </div>
+                </div>    
+                <article class="box">
+                    <div class="container__padre">
+                        <label class="select" for="image">Imágenes:</label>
+                        <input type="file" name="image" id="image">
+                        <p class="text">No se ha seleccionado ningún archivo</p>
+                    </div>
+                </article>
+                <div class="container__padre">
+                    <article class="box btn2">
+                        <button class="modificar-link" href="" type="submit">Agregar Producto</button>
+                    </article>
+                    <article class="box btn2">
+                        <a class="modificar-link" href="">Limpiar</a>
+                    </article>
+                </div>    
+            </form>
+        </section>
+    </main>
+    <%- include ('../../partials/footer') %>
+
+    <!--Iconos-->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+    <script src="/js/menu-mobile.js"></script>
+    <script src="/js/scrollUp.js"></script>
+
+    
+</body>

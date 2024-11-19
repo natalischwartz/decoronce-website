@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vesti tus ambientes con las telas de Decoronce. Trabajamos los géneros más solicitados en el mercado tales como: tusor, gasas, blackout, pana, tela antidesgarro y más.">
+    <meta name="keywords" content="telas, antidesgarro, tusor, blackout, lino, voile">
+    <title> Shop | Decoronce </title>
+    <link rel="icon" href="/Imagenes/iconos/logo-decoronce-op2.png">
+    
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+    <!--=============== REMIX ICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="header scroll-header " id="header"><!--Inicio Header-->
+        <nav class="nav container">
+            <a href="/" class="nav__logo">
+                <i class="ri-leaf-line nav__logo-icon"></i> DecorOnce
+            </a>
+            <ul class="navbar__menu">
+                <li class="navbar__item ">
+                    <a class="navbar__link" href="/shop">Shop</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__cart" >
+                        <img class="ver-carrito" style="cursor: pointer;" id="verCarrito" src="/Imagenes/iconos/MdiCart.png" alt="">
+                        <span id="cantidadCarrito" class="cantidad-carrito"></span>
+                    </a>
+                </li>
+            </ul>
+            <!-- <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon> -->
+        </nav>
+    </header><!--Fin Header-->
+        
+    <main class="container" id="shop-main">
+        <aside class="container">
+            <div class="grid">
+                <div class="filter" id="search-form-container">
+                    <div class="div-filter__search">
+                        <span class="filter__search" for="search">BUSCAR</span>
+                        <img style="width: 18px;" src="/Imagenes/iconos/OcticonSearch.png" alt="">
+                    </div>
+                    <form  id="search-form" action="/shop/search" method="post" enctype="multipart/form-data">
+                        <input class="filter__input" type="text" placeholder="Item o categoría" name="search" id="search-input">
+                        <button class="button__submit" type="submit">Buscar</button>
+                    </form>
+                </div>
+
+                <label for="order" class="filter">
+                    <span>ORDENAR</span>
+                </label>
+                <select style="margin-top: 20px; font-family: var(--body-font);padding: 5px; font-size: var(--small-font-size); width: 155px;" name="order" id="order" onchange="location.href = this.value;">
+                    <option value="/shop">Ordenar por</option>
+                    <option value="/shop?order=pr-mintomax">Precio: Menor a Mayor</option>
+                    <option value="/shop?order=pr-maxtomin">Precio: Mayor a Menor</option>
+                </select>
+
+
+                <form class="filter" action="/shop/filter" method="post">
+                    <div class="filter__category">
+                        <span for ="filter">FILTRAR</span>
+                        <div style="display: flex; align-items: center;gap: 10px;">
+                            <input type="checkbox" name="category" id="news" value="Tapicería">
+                            <label for="">TAPICERÍA</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" name="category" id="offers" value="Cortinería">
+                            <label for="">CORTINERÍA</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap:10px">
+                            <input type="checkbox" name="category" id="edition" value="Mantelería">
+                            <label for="">MANTELERÍA</label>
+                        </div>
+                        <button class="button__submit " onclick="show" type="submit">Aplicar</button>
+                        <!-- <div>
+                            <input type="checkbox" name="filter" id="favs" value="favoritos">
+                            <label for="">FAVORITOS</label>
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+        </aside>
+        <section class="" >
+            <ul id="shop-productos">
+                <% data.forEach((product) => { %> 
+                    <li class="shop__item">
+                        <article class="card-item__shop">
+                            <a class="card-item__link" href="/shop/items/<%= product._id %>">
+                                <picture class="card-item__cover">
+                                    <span class="card-item__tag">Nuevo</span>
+                                    <img class="img-gallery" src="<%=product.image.secure_url %>" alt="<%= product.name %>">
+                                </picture>
+                                <div class="card-item__content__shop">
+                                    <div class="card-item__content__data">
+                                        <p class="card-item__license"><%= product.width %></p>
+                                        <h4 class="card-item__name"><%= product.name %></h4>
+                                        <p class="card-item__price">$<%= product.price %></p>
+                                        <!-- <p class="card-item__promo"><%= product.description %></p> -->
+                                    </div>
+                                    <!-- <a class="card-item__stock" id=""  href="https://api.whatsapp.com/send?phone=5491161622602&text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20productos">CONSULTAR STOCK</a> -->
+                                </div>
+                            </a>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button class="add-to-cart button button--flex"
+                                data-id="<%= product._id %>"
+                                data-name="<%= product.name %>" 
+                                data-img="<%= product.image.secure_url %>" 
+                                data-price="<%= product.price %>"
+                                data-quantity = "">
+                                
+                                Agregar</button>
+                            </div>
+                        </article>
+                    </li>
+                    <% }) %>
+            </ul>
+        </section>
+    </main>
+    <!--MODAL-CONTAINER-->
+    <div id="modal-container" class="modal-container"></div>
+    <!-- <section class="pagination">
+        <button>
+            <iconify-icon icon="mdi:chevron-left"></iconify-icon>
+        </button>
+        <button>
+            <span>1</span>
+        </button>
+        <button>
+            <span>2</span>
+        </button>
+        <button>
+            <span>3</span>
+        </button>
+        <button>
+            <span>4</span>
+        </button>
+        <button>
+            <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+        </button>
+    </section> -->
+    <%- include ('../../partials/footer') %>
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class="ri-arrow-up-fill scrollup__icon"></i>
+    </a>
+<!--Iconos-->
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+<!-- <script src="/js/menu-mobile.js"></script> -->
+
+
+<!-- <script src="/js/main.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/js/carrito.min.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toastMessage = '<%= mensaje %>';
+        if (toastMessage) {
+                Toastify({
+                    text: toastMessage,
+                    duration:2000,
+                    className: "info",
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Sombra
+                        fontSize: "12px",     // Tamaño de la fuente
+                        padding: "10px 20px"  // Espaciado interno
+                    },
+                    onClick: function() {
+                    // Previene la acción al hacer clic
+                    }
+                }).showToast();
+            }
+    });
+</script>
+
+<!--SCRIPT PARA PERSISTIR LA SELECCIÓN EN EL CHECKBOX-->
+
+<!--Almacenar selección en localStorage cuando se selecciona--> 
+<script>
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        localStorage.setItem(checkbox.id, checkbox.checked);
+    });
+});
+
+    // Detectar si se vuelve a la página y deseleccionar los checkboxes
+    window.addEventListener('pageshow', function(event) {
+        // Si la página se muestra desde el historial del navegador (e.g., al usar el botón "Atrás")
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            // Restablecer todos los checkboxes a no seleccionados
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+                localStorage.removeItem(checkbox.id);
+            });
+        }
+    });//Con este enfoque, cuando el usuario vuelva a la página anterior usando el botón "Atrás", los checkboxes se deseleccionarán automáticamente.
+    
+
+</script>
+
+<!--Recuperar la selección en la siguiente página:
+Al cargar la página siguiente, recupera el estado guardado y actualiza el checkbox:-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const isChecked = localStorage.getItem(checkbox.id) === 'true';
+            checkbox.checked = isChecked;
+        });
+    });
+</script>
+
+<script>
+    //Deshabilitar el clic derecho
+
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+  });
+</script>
+
+<!--SCRIPT PARA PERSISTIR LA PALABRA EN EL INPUT-->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+
+    // Recuperar el valor de sessionStorage y establecerlo en el input
+    if (sessionStorage.getItem('searchValue')) {
+        searchInput.value = sessionStorage.getItem('searchValue');
+    }
+
+    // Guardar el valor del input en sessionStorage cuando se envía el formulario
+    searchForm.addEventListener('submit', function() {
+        sessionStorage.setItem('searchValue', searchInput.value);
+    });
+
+     // Detectar si se vuelve a la página y que el input este vacio
+     window.addEventListener('pageshow', function(event) {
+        // Si la página se muestra desde el historial del navegador (e.g., al usar el botón "Atrás")
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            // Restablecer el input a vacio
+            searchInput.value = ''; // Limpiar el valor del input
+            sessionStorage.removeItem('searchValue');
+        }
+    });
+});
+
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+function scrollHeader(){
+    const header = document.getElementById('header')
+    // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
+    if(this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
